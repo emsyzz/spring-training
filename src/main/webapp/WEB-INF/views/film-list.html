@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<table>
+    <caption>
+        <h4>Filmu saraksts</h4>
+    </caption>
+    <thead>
+    <tr class="info">
+        <th>ID</th>
+        <th>Nosaukums</th>
+        <th>Žanrs</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row : ${filmList}">
+        <th th:text="${row.id}"></th>
+        <td th:text="${row.filmName}"></td>
+        <td th:text="${row.genres}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
