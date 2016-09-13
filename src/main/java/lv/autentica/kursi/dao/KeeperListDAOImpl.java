@@ -12,4 +12,12 @@ import javax.inject.Named;
 @Transactional
 public class KeeperListDAOImpl extends AbstractBaseDAOImpl<KeeperListEntity>
         implements KeeperListDAO {
+
+        @Override
+        public KeeperListEntity getKeeperById(Integer keeperId){
+                return (KeeperListEntity) currentSession()
+                        .createQuery("from " + entityName() + " where id = :keeperId ")
+                        .setParameter("keeperId",new Long(keeperId))
+                        .uniqueResult();
+        }
 }

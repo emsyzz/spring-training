@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<span th:if="${carSaveMsg}" th:text="${carSaveMsg}"></span>
+<form method="POST" action="/save-car" th:object="${carEntity}">
+    <input type="hidden" th:field="*{id}"/>
+    <table>
+        <tr>
+            <th>Marka</th>
+            <td>
+                <input type="text" th:field="*{brand}"/>
+            </td>
+        </tr>
+        <tr>
+            <th>Numurs</th>
+            <td>
+                <input type="text" th:field="*{number}"/>
+            </td>
+        </tr>
+        <tr>
+            <th>Krāsa</th>
+            <td>
+                <input type="text" th:field="*{colorId}"/>
+            </td>
+        </tr>
+        <tr>
+            <th>Turētajs</th>
+            <td>
+                <input type="text" th:field="*{keeperId}"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="submit">Saglabāt</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
