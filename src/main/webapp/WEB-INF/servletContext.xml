@@ -19,7 +19,6 @@
 	<mvc:resources mapping="/resources/**" location="WEB-INF/" />
 	<context:component-scan base-package="lv.autentica" />
 
-
 	<!--ViewResolver-->
 	<bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
 		<property name="templateEngine" ref="templateEngine" />
@@ -35,7 +34,7 @@
 		<property name="prefix" value="/WEB-INF/" />
 		<property name="suffix" value=".html" />
 		<property name="templateMode" value="HTML5" />
-		<!--<property name="cacheable" value="false" />-->
+		<property name="cacheable" value="false" />
 		<property name="characterEncoding" value="UTF-8" />
 	</bean>
 

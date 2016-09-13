@@ -3,7 +3,7 @@ package lv.autentica.kursi.controller;
 
 import javax.inject.Inject;
 
-import lv.autentica.kursi.dao.FilmCatalogDAO;
+import lv.autentica.kursi.dao.AutoRegDAO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class HomeController {
 
 	@Inject
-	private FilmCatalogDAO filmCatalogDAO;
+	private AutoRegDAO autoRegDAO;
 
 	@RequestMapping(value={"", "/", "/home"}, method = RequestMethod.GET)
 	public String home(ModelMap model) {
@@ -22,11 +22,11 @@ public class HomeController {
 		return "views/homepage";
 	}
 
-	@RequestMapping(value="/film-list", method = RequestMethod.GET)
+	@RequestMapping(value="/car-list", method = RequestMethod.GET)
 	public String getFilmList(ModelMap model) {
 
-		model.addAttribute("filmList",filmCatalogDAO.findAll());
-		return "views/film-list";
+		model.addAttribute("carList", autoRegDAO.findAll());
+		return "views/car-list";
 	}
 
 }

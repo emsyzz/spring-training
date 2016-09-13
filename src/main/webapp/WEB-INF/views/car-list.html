@@ -8,20 +8,24 @@
 <body>
 <table>
     <caption>
-        <h4>Filmu saraksts</h4>
+        <h4>Automašīnu saraksts</h4>
     </caption>
     <thead>
     <tr class="info">
         <th>ID</th>
-        <th>Nosaukums</th>
-        <th>Žanrs</th>
+        <th>Marka</th>
+        <th>Numurs</th>
+        <th>Krāsa</th>
+        <th>Turētais</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="row : ${filmList}">
+    <tr th:each="row : ${carList}">
         <th th:text="${row.id}"></th>
-        <td th:text="${row.filmName}"></td>
-        <td th:text="${row.genres}"></td>
+        <td th:text="${row.brand}"></td>
+        <td th:text="${row.number}"></td>
+        <td th:text="${row.colorId}"></td>
+        <td th:text="${row.keeperId}"></td>
     </tr>
     </tbody>
 </table>
