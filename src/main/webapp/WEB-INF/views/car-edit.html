@@ -31,7 +31,11 @@
         <tr>
             <th>Turētajs</th>
             <td>
-                <input type="text" th:field="*{keeperId}"/>
+                <select th:field="*{keeperId}">
+                    <option th:each="keeper:${allKeepers}"
+                            th:value="${keeper.id}"
+                            th:text="${keeper.name}"></option>
+                </select>
             </td>
         </tr>
         <tr>

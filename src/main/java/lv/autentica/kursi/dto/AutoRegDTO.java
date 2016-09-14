@@ -1,7 +1,6 @@
 package lv.autentica.kursi.dto;
 
 import lv.autentica.kursi.entity.AutoRegEntity;
-import lv.autentica.kursi.entity.ColorListEntity;
 import lv.autentica.kursi.entity.KeeperListEntity;
 
 /**
@@ -15,7 +14,6 @@ public class AutoRegDTO {
     private Integer colorId;
     private Integer keeperId;
 
-    private ColorListEntity colorEnt;
     private KeeperListEntity keeperEnt;
 
     public AutoRegDTO(){
@@ -68,14 +66,6 @@ public class AutoRegDTO {
 
     public void setKeeperId(Integer keeperId) {
         this.keeperId = keeperId;
-    }
-
-    public ColorListEntity getColorEnt() {
-        return colorEnt;
-    }
-
-    public void setColorEnt(ColorListEntity colorEnt) {
-        this.colorEnt = colorEnt;
     }
 
     public KeeperListEntity getKeeperEnt() {
