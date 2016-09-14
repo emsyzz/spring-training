@@ -29,13 +29,9 @@
             </td>
         </tr>
         <tr>
-            <th>Turētajs</th>
+            <th>Turētājs</th>
             <td>
-                <select th:field="*{keeperId}">
-                    <option th:each="keeper:${allKeepers}"
-                            th:value="${keeper.id}"
-                            th:text="${keeper.name}"></option>
-                </select>
+                <input type="text" th:field="*{keeperId}"/>
             </td>
         </tr>
         <tr>

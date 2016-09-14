@@ -15,7 +15,7 @@ public class AutoRegEntity {
     private Integer keeperId;
 
     @Id
-    @Column(name = "\"ID\"", nullable = false, insertable = true, updatable = true)
+    @Column(name = "\"ID\"")
     public Long getId() {
         return id;
     }
@@ -25,7 +25,7 @@ public class AutoRegEntity {
     }
 
     @Basic
-    @Column(name = "\"BRAND\"", nullable = false, insertable = true, updatable = true, length = 100)
+    @Column(name = "\"BRAND\"")
     public String getBrand() {
         return brand;
     }
@@ -35,7 +35,7 @@ public class AutoRegEntity {
     }
 
     @Basic
-    @Column(name = "\"NUMBER\"", nullable = true, insertable = true, updatable = true, length = 20)
+    @Column(name = "\"NUMBER\"")
     public String getNumber() {
         return number;
     }
@@ -45,7 +45,7 @@ public class AutoRegEntity {
     }
 
     @Basic
-    @Column(name = "\"COLOR_ID\"", nullable = false, insertable = true, updatable = true)
+    @Column(name = "\"COLOR_ID\"")
     public Integer getColorId() {
         return colorId;
     }
@@ -55,7 +55,7 @@ public class AutoRegEntity {
     }
 
     @Basic
-    @Column(name = "\"KEEPER_ID\"", nullable = false, insertable = true, updatable = true)
+    @Column(name = "\"KEEPER_ID\"")
     public Integer getKeeperId() {
         return keeperId;
     }

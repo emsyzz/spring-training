@@ -1,10 +1,8 @@
 package lv.autentica.kursi.dao;
 
 import lv.autentica.kursi.entity.AutoRegEntity;
-import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.inject.Inject;
 import javax.inject.Named;
 
 /**

@@ -1,10 +1,8 @@
 package lv.autentica.kursi.controller;
 
 import lv.autentica.kursi.dao.AutoRegDAO;
-import lv.autentica.kursi.dao.KeeperListDAO;
-import lv.autentica.kursi.dto.AutoRegDTO;
+import lv.autentica.kursi.dao.AutoRegDAOImpl;
 import lv.autentica.kursi.entity.AutoRegEntity;
-import lv.autentica.kursi.entity.KeeperListEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,8 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.inject.Inject;
-import java.util.ArrayList;
-import java.util.List;
+
 
 /**
  * Created by maksims.senko on 2016.09.13..
@@ -26,27 +23,10 @@ public class CarListController {
     @Inject
     private AutoRegDAO autoRegDAO;
 
-    @Inject
-    private KeeperListDAO keeperListDAO;
-
-    @ModelAttribute("allKeepers")
-    public List<KeeperListEntity> getAllKeeper(){
-        return keeperListDAO.findAll();
-    }
-
     @RequestMapping(value="/car-list", method = RequestMethod.GET)
     public ModelAndView getCarList() {
 
-        List<AutoRegEntity> carEntList = autoRegDAO.findAll();
-        List<AutoRegDTO> carList = new ArrayList<>();
-        for (AutoRegEntity autoRegEntity : carEntList) {
-            AutoRegDTO carDTO = new AutoRegDTO(autoRegEntity);
-            carDTO.setKeeperEnt(keeperListDAO.getKeeperById(autoRegEntity.getKeeperId()));
-            carList.add(carDTO);
-        }
-
-        return  new ModelAndView("views/car-list","carList",carList);
-//        return  new ModelAndView("views/car-list","carList",autoRegDAO.findAll());
+        return  new ModelAndView("views/car-list","carList",autoRegDAO.findAll());
     }
 
     @RequestMapping(value="/delete-car", method = RequestMethod.GET)
