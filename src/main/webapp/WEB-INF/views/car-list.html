@@ -28,7 +28,7 @@
             <td th:text="${row.brand}"></td>
             <td th:text="${row.number}"></td>
             <td th:text="${row.colorId}"></td>
-            <td th:text="${row.keeperId}"></td>
+            <td th:text="${row.keeperEnt.name}"></td>
             <td>
                 <a th:href="@{/delete-car?carId={carId}(carId=${row.id})}">Dzēst</a>
                 <a th:href="@{/edit-car?carId={carId}(carId=${row.id})}">Labot</a>

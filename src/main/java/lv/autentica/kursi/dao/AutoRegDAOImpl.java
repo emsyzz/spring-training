@@ -4,6 +4,7 @@ import lv.autentica.kursi.entity.AutoRegEntity;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.inject.Named;
+import java.util.List;
 
 /**
  * Created by maksims.senko on 2016.09.13..
@@ -20,4 +21,14 @@ public class AutoRegDAOImpl extends AbstractBaseDAOImpl<AutoRegEntity>
                         .setParameter("carId", carId)
                         .uniqueResult();
         }
+
+//        @Override
+//        public List<AutoRegEntity> findCarByBrand(String brandName){
+//
+//                return (List<AutoRegEntity>) currentSession()
+//                        .createSQLQuery("select * from auto_reg where \"BRAND\" like :bindParam1 ")
+//                        .addEntity(AutoRegEntity.class)
+//                        .setParameter("bindParam1", brandName)
+//                        .list();
+//        }
 }

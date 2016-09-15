@@ -32,7 +32,12 @@
             <tr>
                 <th>Turētājs</th>
                 <td>
-                    <input type="text" th:field="*{keeperId}"/>
+                    <select th:field="*{keeperId}">
+                        <option th:each="row : ${allKeeperList}"
+                                th:text="${row.name}"
+                                th:value="${row.id}"></option>
+                    </select>
+                    <!--<input type="text" th:field="*{keeperId}"/>-->
                 </td>
             </tr>
             <tr>
