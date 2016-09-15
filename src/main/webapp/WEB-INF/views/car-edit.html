@@ -26,17 +26,28 @@
             <tr>
                 <th>Krāsa</th>
                 <td>
-                    <input type="text" th:field="*{colorId}"/>
+                    <select th:field="*{colorId}">
+                        <option th:each="color : ${colorList}"
+                                th:text="${color.name}"
+                                th:value="${color.id}"
+                                th:selected="*{colorId}"></option>
+                    </select>
                 </td>
             </tr>
             <tr>
                 <th>Turētājs</th>
                 <td>
-                    <input type="text" th:field="*{keeperId}"/>
+                    <select th:field="*{keeperId}">
+                        <option th:each="keeper : ${keeperList}"
+                                th:text="${keeper.name}"
+                                th:value="${keeper.id}"
+                                th:selected="*{keeperId}"></option>
+                    </select>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
+                    <a th:href="@{/car-list}">Atcelt</a>
                     <button type="submit">Saglabāt</button>
                 </td>
             </tr>

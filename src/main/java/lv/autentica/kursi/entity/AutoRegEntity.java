@@ -16,6 +16,7 @@ public class AutoRegEntity {
 
     @Id
     @Column(name = "\"ID\"")
+    @GeneratedValue(strategy=GenerationType.SEQUENCE)
     public Long getId() {
         return id;
     }

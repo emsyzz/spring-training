@@ -13,11 +13,13 @@ import javax.inject.Named;
 public class AutoRegDAOImpl extends AbstractBaseDAOImpl<AutoRegEntity>
         implements AutoRegDAO {
 
-        @Override
-        public AutoRegEntity getCarById(Long carId){
-                return (AutoRegEntity) currentSession()
-                        .createQuery("from " + entityName() + " where id = :carId ")
-                        .setParameter("carId", carId)
-                        .uniqueResult();
-        }
+    @Override
+    public AutoRegEntity getCarById(Long carId)
+    {
+            return (AutoRegEntity) currentSession()
+                    .createQuery("from " + entityName() + " where id = :carId ")
+                    .setParameter("carId", carId)
+                    .uniqueResult();
+    }
+
 }

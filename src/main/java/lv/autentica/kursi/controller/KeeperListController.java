@@ -1,15 +1,18 @@
 package lv.autentica.kursi.controller;
 
-import lv.autentica.kursi.dao.*;
-import lv.autentica.kursi.dto.*;
-import lv.autentica.kursi.entity.*;
+import lv.autentica.kursi.dao.AutoRegDAO;
+import lv.autentica.kursi.dao.ColorDAO;
+import lv.autentica.kursi.dao.KeeperDAO;
+import lv.autentica.kursi.dto.AutoRegDTO;
+import lv.autentica.kursi.entity.AutoRegEntity;
+import lv.autentica.kursi.entity.ColorEntity;
+import lv.autentica.kursi.entity.KeeperEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
@@ -20,48 +23,35 @@ import java.util.List;
  * Created by maksims.senko on 2016.09.13..
  */
 @Controller
-public class CarListController {
-
-    @Inject
-    private AutoRegDAO autoRegDAO;
+public class KeeperListController
+{
 
     @Inject
     private KeeperDAO keeperDAO;
 
-    @Inject
-    private ColorDAO colorDAO;
+    @RequestMapping(value="/keeper-list", method = RequestMethod.GET)
+    public String getKeeperList(ModelMap model,
+                                @RequestParam(value = "noCars", defaultValue = "false", required = false) boolean state) {
 
-    @ModelAttribute("keeperList")
-    public List<KeeperEntity> getKeeperList() {
-        return keeperDAO.findAll();
+        List<KeeperEntity> keeperList = keeperDAO.findAll();
+
+        model.addAttribute("state", state);
+        model.addAttribute("keeperList", keeperList);
+
+        return "views/keeper-list";
     }
 
-    @ModelAttribute("colorList")
-    public List<ColorEntity> getColorList() {
-        return colorDAO.findAll();
+    @RequestMapping(value="/keeper-list/no-cars", method = RequestMethod.GET)
+    public String getKeeperListWithoutCars(ModelMap model) {
+
+        List<KeeperEntity> keeperList = keeperDAO.findAll();
+
+        model.addAttribute("keeperList", keeperList);
+        //model.addAttribute("keeperDeletedMsg", "Ieraksts veiksmīgi izdzēsts!");
+
+        return "views/keeper-list";
     }
-
-    @RequestMapping(value="/car-list", method = RequestMethod.GET)
-    public String getCarList(ModelMap model) {
-
-        List<AutoRegEntity> autoRegList = autoRegDAO.findAll();
-
-        List<AutoRegDTO> autoRegDtoList = new ArrayList<>();
-
-        for (AutoRegEntity autoRegEntity : autoRegList) {
-            AutoRegDTO autoRegDto = new AutoRegDTO(autoRegEntity);
-
-            autoRegDto.setKeeper(keeperDAO.getKeeperById(autoRegDto.getKeeperId().longValue()));
-            autoRegDto.setColor(colorDAO.getColorById(autoRegDto.getColorId().longValue()));
-
-            autoRegDtoList.add(autoRegDto);
-        }
-
-        model.addAttribute("carList", autoRegDtoList);
-
-        return "views/car-list";
-    }
-
+/*
     @RequestMapping(value="/delete-car", method = RequestMethod.GET)
     public String deleteCar(ModelMap model,
                                   @RequestParam("carId") Long carId) {
@@ -101,5 +91,5 @@ public class CarListController {
         autoRegDAO.save(carEntity);
         model.addAttribute("carSaveMsg", "Ieraksts veiksmīgi saglabāts!");
         return "views/car-edit";
-    }
+    }*/
 }

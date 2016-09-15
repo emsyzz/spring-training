@@ -11,6 +11,7 @@
     <table>
         <caption>
             <h4>Automašīnu saraksts</h4>
+            <a th:href="@{/add-car}">Pievienot mašīnu</a>
         </caption>
         <thead>
         <tr class="info">
@@ -19,6 +20,7 @@
             <th>Numurs</th>
             <th>Krāsa</th>
             <th>Turētājs</th>
+            <th>Turētāja peronas kods</th>
             <th>Darbība</th>
         </tr>
         </thead>
@@ -27,8 +29,9 @@
             <th th:text="${row.id}"></th>
             <td th:text="${row.brand}"></td>
             <td th:text="${row.number}"></td>
-            <td th:text="${row.colorId}"></td>
-            <td th:text="${row.keeperId}"></td>
+            <td th:text="${row.color.name}"></td>
+            <td th:text="${row.keeper.name}"></td>
+            <td th:text="${row.keeper.personCode}"></td>
             <td>
                 <a th:href="@{/delete-car?carId={carId}(carId=${row.id})}">Dzēst</a>
                 <a th:href="@{/edit-car?carId={carId}(carId=${row.id})}">Labot</a>

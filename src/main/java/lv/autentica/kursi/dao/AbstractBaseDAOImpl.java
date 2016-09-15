@@ -66,4 +66,9 @@ public class AbstractBaseDAOImpl<T> extends HibernateDaoSupport implements
 		return DataAccessUtils.intResult(getHibernateTemplate().find(
 				"select count(*) from " + type.getName()));
 	}
+
+	public Long getNextKey() {
+
+		return new Long(0);
+	}
 }

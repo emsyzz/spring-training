@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div align="center">
+    <table>
+        <caption>
+            <h4>Turētāju saraksts</h4>
+            <a th:href="@{/keeper-list/no-cars}">Turētāji bez mašīnām</a>
+        </caption>
+        <thead>
+        <tr class="info">
+            <th>ID</th>
+            <th>Vārds</th>
+            <th>Personas kods</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="row : ${keeperList}">
+            <th th:text="${row.id}"></th>
+            <td th:text="${row.name}"></td>
+            <td th:text="${row.personCode}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
