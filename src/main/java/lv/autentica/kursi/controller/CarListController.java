@@ -85,6 +85,7 @@ public class CarListController {
     public String editCar(ModelMap model,
                           @RequestParam("carId") Long carId) {
 
+
         model.addAttribute("carEntity", autoRegDAO.getCarById(carId));
 
         return "views/car-edit";
@@ -102,4 +103,13 @@ public class CarListController {
         model.addAttribute("carSaveMsg", "Ieraksts veiksmīgi saglabāts!");
         return "views/car-edit";
     }
+
+//    @RequestMapping(value="/find-car", method = RequestMethod.GET)
+//    public String findCar(ModelMap model,
+//                          @RequestParam("brandName") String brandName) {
+//
+//        model.addAttribute("carList", autoRegDAO.findCarByBrand(brandName));
+//
+//        return "views/car-list";
+//    }
 }
