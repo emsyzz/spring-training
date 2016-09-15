@@ -6,34 +6,36 @@
     <title></title>
 </head>
 <body>
-<span th:if="${carDeletedMsg}" th:text="${carDeletedMsg}"></span>
-<table>
-    <caption>
-        <h4>Automašīnu saraksts</h4>
-    </caption>
-    <thead>
-    <tr class="info">
-        <th>ID</th>
-        <th>Marka</th>
-        <th>Numurs</th>
-        <th>Krāsa</th>
-        <th>Turētājs</th>
-        <th>Darbība</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="row : ${carList}">
-        <th th:text="${row.id}"></th>
-        <td th:text="${row.brand}"></td>
-        <td th:text="${row.number}"></td>
-        <td th:text="${row.colorId}"></td>
-        <td th:text="${row.keeperId}"></td>
-        <td>
-            <a th:href="@{/delete-car?carId={carId}(carId=${row.id})}">Dzēst</a>
-            <a th:href="@{/edit-car?carId={carId}(carId=${row.id})}">Labot</a>
-        </td>
-    </tr>
-    </tbody>
-</table>
+<div align="center">
+    <span th:if="${carDeletedMsg}" th:text="${carDeletedMsg}"></span>
+    <table>
+        <caption>
+            <h4>Automašīnu saraksts</h4>
+        </caption>
+        <thead>
+        <tr class="info">
+            <th>ID</th>
+            <th>Marka</th>
+            <th>Numurs</th>
+            <th>Krāsa</th>
+            <th>Turētājs</th>
+            <th>Darbība</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="row : ${carList}">
+            <th th:text="${row.id}"></th>
+            <td th:text="${row.brand}"></td>
+            <td th:text="${row.number}"></td>
+            <td th:text="${row.colorId}"></td>
+            <td th:text="${row.keeperId}"></td>
+            <td>
+                <a th:href="@{/delete-car?carId={carId}(carId=${row.id})}">Dzēst</a>
+                <a th:href="@{/edit-car?carId={carId}(carId=${row.id})}">Labot</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
