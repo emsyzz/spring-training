@@ -16,7 +16,8 @@ public class AutoRegEntity {
 
     @Id
     @Column(name = "\"ID\"")
-    @GeneratedValue(strategy=GenerationType.SEQUENCE)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="AutoRegSeqGen")
+    @SequenceGenerator(name="AutoRegSeqGen", sequenceName="auto_reg_id_seq", allocationSize=1)
     public Long getId() {
         return id;
     }

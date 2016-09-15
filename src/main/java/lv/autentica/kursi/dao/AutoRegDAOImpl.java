@@ -4,7 +4,6 @@ import lv.autentica.kursi.entity.AutoRegEntity;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.inject.Named;
-import java.util.List;
 
 /**
  * Created by maksims.senko on 2016.09.13..
