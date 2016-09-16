@@ -16,9 +16,6 @@ public class KeeperDAOImpl
         implements KeeperDAO
 {
 
-    @Inject
-    AutoRegDAO autoRegDAO;
-
     @Override
     public KeeperEntity getKeeperById(Long keeperId)
     {
@@ -31,22 +28,11 @@ public class KeeperDAOImpl
     public List<KeeperEntity> getKeepersWithoutCars()
     {
         List<KeeperEntity> keeperList = currentSession()
-                .createQuery(
-                        "from KeeperEntity as k "/* +
-                        "join AutoRegEntity as ar on ar.keeperId = k.id " +
-                        "where ar.id is null"*/
-                )
+                .createSQLQuery(
+                        "select * from keeper_list where \"ID\" not in (select \"KEEPER_ID\" from auto_reg) "
+                ).addEntity(KeeperEntity.class)
                 .list();
 
-        List<KeeperEntity> resultList = new ArrayList<>();
-
-        for (KeeperEntity keeper : keeperList) {
-            List<AutoRegEntity> carList = autoRegDAO.getCarsByKeeperId(keeper.getId());
-            if (carList.isEmpty()) {
-                resultList.add(keeper);
-            }
-        }
-
-        return resultList;
+        return keeperList;
     }
 }

@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba220f80-4508-47fc-9ed6-b2051f7862c2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/lv/autentica/kursi/entity/AutoRegEntity.java" afterPath="$PROJECT_DIR$/src/main/java/lv/autentica/kursi/entity/AutoRegEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/lv/autentica/kursi/dao/KeeperDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/lv/autentica/kursi/dao/KeeperDAOImpl.java" />
     </list>
     <ignored path="SpringMVC.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -206,13 +205,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="KeeperDAOImpl.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="KeeperDAOImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/lv/autentica/kursi/dao/KeeperDAOImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="45" column="39" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
+            <state relative-caret-position="153">
+              <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
               <folding>
-                <element signature="imports" expanded="false" />
+                <marker date="1474023135274" expanded="true" signature="899:981" ph="select * fro... keeper_list" />
+                <marker date="1474023135274" expanded="true" signature="946:980" ph="select \&quot;KEE... auto_reg" />
               </folding>
             </state>
           </provider>
@@ -274,7 +274,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AutoRegEntity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AutoRegEntity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lv/autentica/kursi/entity/AutoRegEntity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
@@ -444,9 +444,9 @@
         <option value="$PROJECT_DIR$/src/main/java/lv/autentica/kursi/dao/AutoRegDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/lv/autentica/kursi/dao/AutoRegDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/lv/autentica/kursi/dto/AutoRegDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lv/autentica/kursi/dao/KeeperDAOImpl.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/java/lv/autentica/kursi/entity/AutoRegEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lv/autentica/kursi/dao/KeeperDAOImpl.java" />
       </list>
     </option>
   </component>
@@ -1423,12 +1423,12 @@
       <workItem from="1473939622575" duration="11190000" />
       <workItem from="1473974146050" duration="13989000" />
       <workItem from="1474006277846" duration="9000" />
-      <workItem from="1474006512668" duration="1410000" />
+      <workItem from="1474006512668" duration="1765000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86247000" />
+    <option name="totallyTimeSpent" value="86602000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1451,7 +1451,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3384933" sideWeight="0.50220263" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34275052" sideWeight="0.49425286" order="8" side_tool="false" content_ui="tabs" x="431" y="128" width="647" height="609" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32875368" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19711043" sideWeight="0.49779737" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19711043" sideWeight="0.49779737" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920536" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935154" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1508,12 +1508,6 @@
           <line>23</line>
           <properties />
           <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/lv/autentica/kursi/dao/KeeperDAOImpl.java</url>
-          <line>32</line>
-          <properties />
-          <option name="timeStamp" value="36" />
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="37" />
@@ -1904,16 +1898,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lv/autentica/kursi/dao/KeeperDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="45" column="39" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/dataSources/c31ff505-3dbf-4b9a-907d-d2812117570b.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -1984,6 +1968,17 @@
           <folding>
             <element signature="e#1420#1421#0" expanded="true" />
             <element signature="e#1460#1461#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lv/autentica/kursi/dao/KeeperDAOImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+          <folding>
+            <marker date="1474023135274" expanded="true" signature="899:981" ph="select * fro... keeper_list" />
+            <marker date="1474023135274" expanded="true" signature="946:980" ph="select \&quot;KEE... auto_reg" />
           </folding>
         </state>
       </provider>
