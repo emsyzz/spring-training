@@ -12,7 +12,7 @@ public class AutoRegEntity
     @Id
     @Column(name = "\"ID\"")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "AutoRegSeqGen")
-    @SequenceGenerator(name = "AutoRegSeqGen", sequenceName = "auto_reg_id_seq", allocationSize = 1)
+    @SequenceGenerator(name = "AutoRegSeqGen", sequenceName = "\"auto_reg_ID_seq\"", allocationSize = 1)
     private Long id;
 
     @Basic
