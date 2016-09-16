@@ -7,17 +7,30 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "auto_reg", schema = "public", catalog = "cars_db")
-public class AutoRegEntity {
-    private Long id;
-    private String brand;
-    private String number;
-    private Integer colorId;
-    private Integer keeperId;
-
+public class AutoRegEntity
+{
     @Id
     @Column(name = "\"ID\"")
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="AutoRegSeqGen")
-    @SequenceGenerator(name="AutoRegSeqGen", sequenceName="auto_reg_id_seq", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "AutoRegSeqGen")
+    @SequenceGenerator(name = "AutoRegSeqGen", sequenceName = "auto_reg_id_seq", allocationSize = 1)
+    private Long id;
+
+    @Basic
+    @Column(name = "\"BRAND\"")
+    private String brand;
+
+    @Basic
+    @Column(name = "\"NUMBER\"")
+    private String number;
+
+    @Basic
+    @Column(name = "\"COLOR_ID\"")
+    private Integer colorId;
+
+    @Basic
+    @Column(name = "\"KEEPER_ID\"")
+    private Integer keeperId;
+
     public Long getId() {
         return id;
     }
@@ -26,8 +39,6 @@ public class AutoRegEntity {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "\"BRAND\"")
     public String getBrand() {
         return brand;
     }
@@ -36,8 +47,6 @@ public class AutoRegEntity {
         this.brand = brand;
     }
 
-    @Basic
-    @Column(name = "\"NUMBER\"")
     public String getNumber() {
         return number;
     }
@@ -46,8 +55,6 @@ public class AutoRegEntity {
         this.number = number;
     }
 
-    @Basic
-    @Column(name = "\"COLOR_ID\"")
     public Integer getColorId() {
         return colorId;
     }
@@ -56,8 +63,6 @@ public class AutoRegEntity {
         this.colorId = colorId;
     }
 
-    @Basic
-    @Column(name = "\"KEEPER_ID\"")
     public Integer getKeeperId() {
         return keeperId;
     }

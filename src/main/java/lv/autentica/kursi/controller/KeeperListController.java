@@ -1,8 +1,6 @@
 package lv.autentica.kursi.controller;
 
-import lv.autentica.kursi.dao.AutoRegDAO;
-import lv.autentica.kursi.dao.ColorDAO;
-import lv.autentica.kursi.dao.KeeperDAO;
+import lv.autentica.kursi.dao.*;
 import lv.autentica.kursi.dto.AutoRegDTO;
 import lv.autentica.kursi.entity.AutoRegEntity;
 import lv.autentica.kursi.entity.ColorEntity;
@@ -19,9 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-/**
- * Created by maksims.senko on 2016.09.13..
- */
 @Controller
 public class KeeperListController
 {
@@ -31,11 +26,19 @@ public class KeeperListController
 
     @RequestMapping(value="/keeper-list", method = RequestMethod.GET)
     public String getKeeperList(ModelMap model,
-                                @RequestParam(value = "noCars", defaultValue = "false", required = false) boolean state) {
+                                @RequestParam(value = "noCars",
+                                              defaultValue = "false",
+                                              required = false) boolean findWithoutCars) {
 
-        List<KeeperEntity> keeperList = keeperDAO.findAll();
+        List<KeeperEntity> keeperList;
 
-        model.addAttribute("state", state);
+        if (findWithoutCars) {
+            keeperList = keeperDAO.getKeepersWithoutCars();
+        } else {
+            keeperList = keeperDAO.findAll();
+        }
+
+        model.addAttribute("onlyWithoutCars", findWithoutCars);
         model.addAttribute("keeperList", keeperList);
 
         return "views/keeper-list";
@@ -47,7 +50,6 @@ public class KeeperListController
         List<KeeperEntity> keeperList = keeperDAO.findAll();
 
         model.addAttribute("keeperList", keeperList);
-        //model.addAttribute("keeperDeletedMsg", "Ieraksts veiksmīgi izdzēsts!");
 
         return "views/keeper-list";
     }
