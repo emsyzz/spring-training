@@ -1,20 +1,25 @@
 package lv.autentica.kursi.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- * Created by maksims.senko on 2016.09.13..
- */
 @Entity
 @Table(name = "keeper_list", schema = "public", catalog = "cars_db")
 public class KeeperEntity
 {
-    private Long id;
-    private String name;
-    private String personCode;
-
     @Id
     @Column(name = "\"ID\"")
+    private Long id;
+
+    @Basic
+    @Column(name = "\"NAME\"")
+    private String name;
+
+    @Basic
+    @Column(name = "\"PERSON_CODE\"")
+    private String personCode;
+
     public Long getId() {
         return id;
     }
@@ -23,8 +28,6 @@ public class KeeperEntity
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "\"NAME\"")
     public String getName() {
         return name;
     }
@@ -33,14 +36,24 @@ public class KeeperEntity
         this.name = name;
     }
 
-    @Basic
-    @Column(name = "\"PERSON_CODE\"")
     public String getPersonCode() {
         return personCode;
     }
 
     public void setPersonCode(String personCode) {
         this.personCode = personCode;
+    }
+
+    @OneToMany(targetEntity = AutoRegEntity.class, mappedBy = "\"KEEPER_ID\"")
+    public List<AutoRegEntity> getAutoRegEntities() {
+
+        List<AutoRegEntity> list = new ArrayList<>();
+
+        return list;
+    }
+
+    public void setAutoRegEntities(List<AutoRegEntity> list) {
+
     }
 
     @Override

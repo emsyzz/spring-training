@@ -13,6 +13,6 @@ public interface AutoRegDAO extends AbstractBaseDAO<AutoRegEntity> {
 
     AutoRegEntity getCarById(Long carId);
 
-//    List<AutoRegEntity> findCarByBrand(String brandName);
+    List<AutoRegEntity> getCarsByKeeperId(Long carId);
 
 }
