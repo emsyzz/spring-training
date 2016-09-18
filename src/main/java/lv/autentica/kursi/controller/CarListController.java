@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
@@ -30,16 +29,6 @@ public class CarListController {
 
     @Inject
     private ColorDAO colorDAO;
-
-    @ModelAttribute("keeperList")
-    public List<KeeperEntity> getKeeperList() {
-        return keeperDAO.findAll();
-    }
-
-    @ModelAttribute("colorList")
-    public List<ColorEntity> getColorList() {
-        return colorDAO.findAll();
-    }
 
     @RequestMapping(value="/car-list", method = RequestMethod.GET)
     public String getCarList(ModelMap model) {
@@ -78,6 +67,8 @@ public class CarListController {
 
         model.addAttribute("carEntity", new AutoRegEntity());
 
+        this.addCarFormAttributes(model);
+
         return "views/car-edit";
     }
 
@@ -88,6 +79,8 @@ public class CarListController {
 
         model.addAttribute("carEntity", autoRegDAO.getCarById(carId));
 
+        this.addCarFormAttributes(model);
+
         return "views/car-edit";
     }
 
@@ -95,21 +88,20 @@ public class CarListController {
     public String saveCar(ModelMap model,
                           @ModelAttribute("carEntity") AutoRegEntity carEntity) {
 
-        if (null == carEntity.getId()) {
-
-        }
-
         autoRegDAO.save(carEntity);
+
         model.addAttribute("carSaveMsg", "Ieraksts veiksmīgi saglabāts!");
+
+        this.addCarFormAttributes(model);
+
         return "views/car-edit";
     }
 
-//    @RequestMapping(value="/find-car", method = RequestMethod.GET)
-//    public String findCar(ModelMap model,
-//                          @RequestParam("brandName") String brandName) {
-//
-//        model.addAttribute("carList", autoRegDAO.findCarByBrand(brandName));
-//
-//        return "views/car-list";
-//    }
+    private void addCarFormAttributes(ModelMap model)
+    {
+        model.addAttribute("keeperList", keeperDAO.findAll());
+
+        model.addAttribute("colorList", colorDAO.findAll());
+    }
+
 }
