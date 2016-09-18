@@ -1,12 +1,9 @@
 package lv.autentica.kursi.dao;
 
-import lv.autentica.kursi.entity.AutoRegEntity;
 import lv.autentica.kursi.entity.KeeperEntity;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.inject.Inject;
 import javax.inject.Named;
-import java.util.ArrayList;
 import java.util.List;
 
 @Named
@@ -29,7 +26,9 @@ public class KeeperDAOImpl
     {
         List<KeeperEntity> keeperList = currentSession()
                 .createSQLQuery(
-                        "select * from keeper_list where \"ID\" not in (select \"KEEPER_ID\" from auto_reg) "
+                        "select k.* from keeper_list as k " +
+                        "left join auto_reg as a on k.\"ID\" = a.\"KEEPER_ID\" " +
+                        "where a.\"ID\" is null"
                 ).addEntity(KeeperEntity.class)
                 .list();
 
