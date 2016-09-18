@@ -11,8 +11,8 @@
         <caption>
             <h4>Turētāju saraksts</h4>
             <th:block th:switch="${onlyWithoutCars}">
-                <a th:case="true" th:href="@{/keeper-list}">Visi turētāji</a>
-                <a th:case="false" th:href="@{/keeper-list?noCars=true}">Turētāji bez mašīnām</a>
+                <a th:case="true" th:href="@{'/keeper-list'}">Visi turētāji</a>
+                <a th:case="false" th:href="@{'/keeper-list?noCars=true'}">Turētāji bez mašīnām</a>
             </th:block>
         </caption>
         <thead>
